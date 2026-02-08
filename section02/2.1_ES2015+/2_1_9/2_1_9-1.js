@@ -44,3 +44,4 @@ console.log(m.has(d)); // true
 m.delete(d); // delete(키)로 속성을 삭제합니다
 m.clear(); // clear()로 전부 제거합니다
 console.log(m.size); // 0
+
