@@ -1,0 +1,27 @@
+<script>
+  // FormData: 키-값 쌍으로 데이터를 구성하는 객체
+  // 주로 파일 업로드나 multipart/form-data 형식의 요청에 사용됨
+  const formData = new FormData();
+  // append(key, value): 데이터 추가
+  // 같은 키로 여러 번 추가하면 값이 덮어쓰이지 않고 모두 누적됨
+  formData.append("name", "zerocho");
+  formData.append("item", "orange");
+  formData.append("item", "melon");
+  // has(key): 해당 키가 존재하는지 확인 → true / false 반환
+  formData.has("item"); // true
+  formData.has("money"); // false;
+  // get(key): 해당 키의 첫 번째 값만 반환
+  formData.get("item"); // orange
+  // getAll(key): 해당 키에 연결된 모든 값을 배열로 반환
+  formData.getAll("item"); // ['orange', 'melon'];
+  // 배열을 append하면 자동으로 쉼표로 연결된 문자열로 변환됨 (배열 아님 주의!)
+  formData.append("test", ["hi", "zero"]);
+  formData.get("test"); // hi, zero
+  // delete(key): 해당 키와 연결된 모든 값을 삭제
+  formData.delete("test");
+  formData.get("test"); // null
+  // set(key, value): 해당 키의 기존 값을 모두 제거하고 새 값 하나로 교체
+  // append와 달리 기존 값을 덮어씀
+  formData.set("item", "apple");
+  formData.getAll("item"); // ['apple'];
+</script>
