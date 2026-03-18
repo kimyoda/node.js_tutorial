@@ -1,0 +1,22 @@
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  // async IIFE: await 사용을 위해 즉시 실행 함수를 async로 감쌈
+  (async () => {
+    try {
+      const formData = new FormData();
+      formData.append("name", "zerocho");
+      formData.append("birth", 1994);
+      // axios.post(url, formData): FormData를 두 번째 인수로 넘기면
+      // Content-Type이 자동으로 'multipart/form-data'로 설정됨
+      // JSON 전송(axios.post의 일반 객체)과 달리 파일, 바이너리 데이터도 함께 전송 가능
+      const result = await axios.post(
+        "https://www.zerocho.com/api/post/formdata",
+        formData,
+      );
+      console.log(result);
+      console.log(result.data);
+    } catch (error) {
+      console.error(error);
+    }
+  })();
+</script>
