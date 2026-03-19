@@ -1,0 +1,12 @@
+<ul>
+  <!-- data 속성, HTML 태그에 개발자가 직접 커스텀 데이터를 저장하는 방법 -->
+  <!-- data-속셩명="값" -->
+  <li data-id="1" data-user-job="programmer">Zero</li>
+  <li data-id="2" data-user-job="designer">Nero</li>
+  <li data-id="3" data-user-job="programmer">Hero</li>
+  <li data-id="4" data-user-job="ceo">Kero</li>
+</ul>
+<script>
+  console.log(document.querySelector("li").dataset);
+  // { id: '1', userJob: 'programmer' }
+</script>

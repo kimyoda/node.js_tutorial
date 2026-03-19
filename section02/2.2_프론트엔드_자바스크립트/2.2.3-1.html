@@ -1,0 +1,18 @@
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  // async : await 사용을 위해 즉시 실행 함수를 async로 감싼
+  (async () => {
+    try {
+      // encodeURIComponenet(문자열): 한글, 특수문자 등 URL에 사용할 수 없는 문자
+      // % + 16진수 형태로 변환해주는 내장함수
+      // 반대로 디코딩할때는 decodeURIComponent()를 사용
+      const result = await axios.get(
+        `https://www.zerocho.com/api/search/${encodeURIComponent("노드")}`,
+      );
+      console.log(result);
+      console.log(result.data); // {}
+    } catch (error) {
+      console.error(error);
+    }
+  })();
+</script>
